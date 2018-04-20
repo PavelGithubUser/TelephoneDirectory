@@ -11,11 +11,11 @@ public class PhoneDirectory {
         return phoneDirectory.get(name);
     }
 
-    public void addNote(String name, ArrayList<String> numbersList) {
+    public void addEntry(String name, ArrayList<String> numbersList) {
         phoneDirectory.put(name, numbersList);
     }
 
-    public HashMap<String, ArrayList<String>> getPhoneDirectory() {
+    public HashMap<String, ArrayList<String>> phoneStorage() {
         return phoneDirectory;
     }
 
