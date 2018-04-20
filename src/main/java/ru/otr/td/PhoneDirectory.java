@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class PhoneDirectory {
-    public HashMap<String, ArrayList<String>> phoneDirectory = new HashMap<String, ArrayList<String>>();
+    public HashMap<String, ArrayList<String>> phoneDirectory = new HashMap<>();
 
 
     public ArrayList<String> findPhonesByName(String name) {
