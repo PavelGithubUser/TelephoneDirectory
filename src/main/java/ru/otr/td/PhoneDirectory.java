@@ -1,25 +1,25 @@
 package ru.otr.td;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 
 public class PhoneDirectory {
-    public HashMap<String, ArrayList<String>> phoneDirectory = new HashMap<>();
+    public HashMap<String, List<String>> PhoneStorage = new HashMap<>();
 
 
-    public ArrayList<String> findPhonesByName(String name) {
-        return phoneDirectory.get(name);
+    public List<String> findPhonesByName(String name) {
+        return PhoneStorage.get(name);
     }
 
-    public void addEntry(String name, ArrayList<String> numbersList) {
-        phoneDirectory.put(name, numbersList);
+    public void addEntry(String name, List<String> numbersList) {
+        PhoneStorage.put(name, numbersList);
     }
 
-    public HashMap<String, ArrayList<String>> phoneStorage() {
-        return phoneDirectory;
+    public HashMap<String, List<String>> phoneStorage() {
+        return PhoneStorage;
     }
 
-    public void setPhoneDirectory(HashMap<String, ArrayList<String>> phoneDirectory) {
-        this.phoneDirectory = phoneDirectory;
+    public void setPhoneStorage(HashMap<String, List<String>> phoneStorage) {
+        this.PhoneStorage = phoneStorage;
     }
 }

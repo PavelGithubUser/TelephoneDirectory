@@ -13,33 +13,38 @@ public class Application {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-
-        logger.info("Set name");
-
-        Scanner in = new Scanner(System.in);
-        String name = in.nextLine();
-        List<String> matchingPhones;
-        if ((matchingPhones = initPhoneStorage().findPhonesByName(name)) != null) {
-            for (String number : matchingPhones) {
-                System.out.println(number);
+        initPhoneStorage();
+        while (true) {
+            logger.info("Set name for get numbers   ||   Enter '0' for exit");
+            Scanner in = new Scanner(System.in);
+            String name = in.nextLine();
+            if (name.equals("0")){
+                break;
             }
-        } else {
-            logger.info("Name is missing in the database");
+            List<String> matchingPhones;
+            matchingPhones = phoneDirectory.findPhonesByName(name);
+            if (matchingPhones != null) {
+                for (String number : matchingPhones) {
+                    System.out.println(number);
+                }
+            } else {
+                logger.info("Name is missing in the database");
+            }
         }
 
     }
 
-    static PhoneDirectory initPhoneStorage() {
+    private static void initPhoneStorage() {
         String name1 = "Иванов И.И.";
         String name2 = "Петров П.П.";
         String name3 = "Сидоров С.С.";
 
-        ArrayList<String> numbersList1 = new ArrayList<String>();
+        List<String> numbersList1 = new ArrayList<>();
         numbersList1.add("+8 800 2000 500");
         numbersList1.add("+8 800 200 600");
-        ArrayList<String> numbersList2 = new ArrayList<String>();
+        List<String> numbersList2 = new ArrayList<>();
         numbersList2.add("+8 800 2000 700");
-        ArrayList<String> numbersList3 = new ArrayList<String>();
+        List<String> numbersList3 = new ArrayList<>();
         numbersList3.add("+8 800 2000 800");
         numbersList3.add("+8 800 2000 900");
         numbersList3.add("+8 800 2000 000");
@@ -47,7 +52,6 @@ public class Application {
         phoneDirectory.addEntry(name1, numbersList1);
         phoneDirectory.addEntry(name2, numbersList2);
         phoneDirectory.addEntry(name3, numbersList3);
-        return phoneDirectory;
     }
 
 }
