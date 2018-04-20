@@ -13,13 +13,15 @@ public class Application {
     private static Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
+        boolean userAskedForExit = true;
+
         initPhoneStorage();
-        while (true) {
+        while (userAskedForExit) {
             logger.info("Set name for get numbers   ||   Enter '0' for exit");
             Scanner in = new Scanner(System.in);
             String name = in.nextLine();
             if (name.equals("0")){
-                break;
+                userAskedForExit = false;
             }
             List<String> matchingPhones;
             matchingPhones = phoneDirectory.findPhonesByName(name);
