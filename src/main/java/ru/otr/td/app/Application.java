@@ -26,9 +26,7 @@ public class Application {
             List<String> matchingPhones;
             matchingPhones = phoneDirectory.findPhonesByName(name);
             if (matchingPhones != null) {
-                for (String number : matchingPhones) {
-                    System.out.println(number);
-                }
+                matchingPhones.forEach(System.out::println);
             } else {
                 logger.info("Name is missing in the database");
             }
